@@ -1,4 +1,4 @@
-﻿var myGarageApp = angular.module('myGarage', ['ngRoute']);
+﻿var myGarageApp = angular.module('myGarage', ['ionic', 'ngRoute']);
 
 
 // configure routes
@@ -25,13 +25,13 @@ myGarageApp.config(function ($routeProvider) {
 });
 
 myGarageApp.controller('mainController', function ($scope) {
-    $scope.message = 'Hello Everyone!';
+    $scope.message = 'Welcome Saheb...!';
 });
 
 myGarageApp.controller('aboutController', function ($scope) {
-    $scope.message = 'Look! I am an about page.';
+    $scope.message = 'What are you looking for....? Is this looking good...?';
 });
 
 myGarageApp.controller('contactController', function ($scope) {
-    $scope.message = 'Contact us! JK. This is just a demo.';
+    $scope.message = 'Contact Saheb for chilling out....';
 });
