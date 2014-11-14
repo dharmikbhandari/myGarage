@@ -5,6 +5,8 @@
 myGarageApp.config(function ($routeProvider) {
     $routeProvider
 
+        /*****route for generalPages*****/
+
         // route for the home page
         .when('/', {
             templateUrl: 'generalPages/home.html',
@@ -21,9 +23,25 @@ myGarageApp.config(function ($routeProvider) {
         .when('/contact', {
             templateUrl: 'generalPages/contact.html',
             controller: 'contactController'
-        });
+        })
+
+
+
+        /***** route for Vehicle *****/
+
+        // route for the contact page
+        .when('/vehicle/add', {
+            templateUrl: 'vehicle/add.html',
+            controller: 'vehicleAddController'
+        })
+
+        
+
+    ;
 });
 
+
+/***** General Controller *****/
 myGarageApp.controller('mainController', function ($scope) {
     $scope.message = 'Welcome Saheb...!';
 });
@@ -34,4 +52,11 @@ myGarageApp.controller('aboutController', function ($scope) {
 
 myGarageApp.controller('contactController', function ($scope) {
     $scope.message = 'Contact Saheb for chilling out....';
+});
+
+
+
+/***** Vehicle Controller *****/
+myGarageApp.controller('vehicleAddController', function ($scope) {
+    $scope.VehicleNo = "Dharmik";
 });
