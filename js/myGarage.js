@@ -28,12 +28,16 @@ myGarageApp.config(function ($routeProvider) {
 
 
         /***** route for Vehicle *****/
-
-        // route for the contact page
         .when('/vehicle/add', {
             templateUrl: 'vehicle/add.html',
             controller: 'vehicleAddController'
         })
+        .when('/vehicle/list', {
+            templateUrl: 'vehicle/list.html',
+            controller: 'vehicleListController'
+        })
+
+
 
         
 
@@ -42,8 +46,20 @@ myGarageApp.config(function ($routeProvider) {
 
 
 /***** General Controller *****/
-myGarageApp.controller('mainController', function ($scope) {
+myGarageApp.controller('mainController', function ($scope, $ionicPopover) {
     $scope.message = 'Welcome Saheb...!';
+
+    $ionicPopover.fromTemplateUrl('templates/popover.html', {
+        scope: $scope,
+    }).then(function (popover) {
+        $scope.popover = popover;
+    });
+    $scope.openPopover = function ($event) {
+        $scope.popover.show($event);
+    };
+    $scope.closePopover = function () {
+        $scope.popover.hide();
+    };
 });
 
 myGarageApp.controller('aboutController', function ($scope) {
@@ -59,4 +75,8 @@ myGarageApp.controller('contactController', function ($scope) {
 /***** Vehicle Controller *****/
 myGarageApp.controller('vehicleAddController', function ($scope) {
     $scope.VehicleNo = "Dharmik";
+});
+
+myGarageApp.controller('vehicleListController', function ($scope) {
+    $scope.popoverTemplate = 'templates/popover.html';
 });
