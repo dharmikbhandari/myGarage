@@ -10,7 +10,7 @@ myGarageApp.config(function ($routeProvider) {
         // route for the home page
         .when('/', {
             templateUrl: 'generalPages/home.html',
-            controller: 'mainController'
+            controller: 'homeController'
         })
 
         // route for the about page
@@ -46,28 +46,24 @@ myGarageApp.config(function ($routeProvider) {
 
 
 /***** General Controller *****/
-myGarageApp.controller('mainController', function ($scope, $ionicPopover) {
+myGarageApp.controller('mainController', function ($scope) {
     $scope.message = 'Welcome Saheb...!';
-
-    $ionicPopover.fromTemplateUrl('templates/popover.html', {
-        scope: $scope,
-    }).then(function (popover) {
-        $scope.popover = popover;
-    });
-    $scope.openPopover = function ($event) {
-        $scope.popover.show($event);
-    };
-    $scope.closePopover = function () {
-        $scope.popover.hide();
-    };
 });
+
+myGarageApp.controller('homeController', function ($scope) {
+    $scope.message = 'Welcome home Saheb...!';
+    $scope.footerText = "home";
+});
+
 
 myGarageApp.controller('aboutController', function ($scope) {
     $scope.message = 'What are you looking for....? Is this looking good...?';
+    $scope.footerText = "about";
 });
 
 myGarageApp.controller('contactController', function ($scope) {
     $scope.message = 'Contact Saheb for chilling out....';
+    $scope.footerText = "Contact Footer";
 });
 
 
@@ -75,8 +71,9 @@ myGarageApp.controller('contactController', function ($scope) {
 /***** Vehicle Controller *****/
 myGarageApp.controller('vehicleAddController', function ($scope) {
     $scope.VehicleNo = "Dharmik";
+    $scope.footerText = "Vehicle Add";
 });
 
-myGarageApp.controller('vehicleListController', function ($scope) {
-    $scope.popoverTemplate = 'templates/popover.html';
+myGarageApp.controller('vehicleListController', function ($scope, $rootScope) {
+    $scope.footerText = "Vehicle List";
 });
