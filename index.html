@@ -2,31 +2,52 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0, width=device-width">
-   
-     <!-- ionic css -->
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/myGarage.css" rel="stylesheet" />
+
+    <!-- Start ionic -->
+
+    <!-- ionic css -->
+    <!--<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/myGarage.css" rel="stylesheet" />-->
 
 
     <!-- ionic js -->
-    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <!--<script src="lib/ionic/js/ionic.bundle.min.js"></script>
     <script src="lib/ionic/js/angular/angular-route.min.js"></script>
 
-    <script src="cordova.js"></script>
+    <script src="cordova.js"></script>-->
 
     <!-- myGarage js -->
+    <!--<script src="js/myGarage.js"></script>-->
+
+    <!-- End ionic -->
+
+    <!-- Material Design css-->
+    <!-- Angulars Material CSS now available via Google CDN; version 0.6 used here -->
+    <link href="lib/AngularMaterialDesign/css/angular-material.min.css" rel="stylesheet" />
+    <link href="css/myGarage.css" rel="stylesheet" />
+
+
+    <!-- Angular Material Dependencies -->
+    <script src="lib/AngularMaterialDesign/js/hammer.min.js"></script>
+    <script src="lib/AngularMaterialDesign/js/angular.min.js"></script>
+    <script src="lib/AngularMaterialDesign/js/angular-animate.min.js"></script>
+    <script src="lib/AngularMaterialDesign/js/angular-aria.min.js"></script>
+
+
+    <!-- Angular Material Javascript now available via Google CDN; version 0.6 used here -->
+    <script src="lib/AngularMaterialDesign/js/angular-material.min.js"></script>
+
+     <!-- myGarage js -->
     <script src="js/myGarage.js"></script>
 
     <title>Start-Up</title>
 </head>
 <body ng-controller="mainController">
-<ion-pane>
-
-     
-            home
-            
-
-</ion-pane>
-
+    <div layout="row" layout-align="end end"  class="pane">
+        <md-button class="md-fab md-warn">
+            <md-icon icon="images/icons/car.png" style="width: 24px; height: 24px;"></md-icon>
+        </md-button>
+         
+    </div>
 </body>
 </html>

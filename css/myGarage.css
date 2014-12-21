@@ -1,3 +1,9 @@
-.assertive span {
-    color: #ef4e3a;
-}
+ .pane {
+        background: url('../images/main-blur-image.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        padding-bottom: 10%;
+        padding-right: 10%;
+    }

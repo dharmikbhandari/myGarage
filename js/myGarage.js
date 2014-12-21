@@ -1,48 +1,48 @@
-﻿var myGarageApp = angular.module('myGarage', ['ionic', 'ngRoute']);
+﻿var myGarageApp = angular.module('myGarage', ['ngMaterial']);
 
 
-// configure routes
-myGarageApp.config(function ($routeProvider) {
-    $routeProvider
+//// configure routes
+//myGarageApp.config(function ($routeProvider) {
+//    $routeProvider
 
-        /*****route for generalPages*****/
+//        /*****route for generalPages*****/
 
-        // route for the home page
-        .when('/', {
-            templateUrl: 'generalPages/home.html',
-            controller: 'homeController'
-        })
+//        // route for the home page
+//        .when('/', {
+//            templateUrl: 'generalPages/home.html',
+//            controller: 'homeController'
+//        })
 
-        // route for the about page
-        .when('/about', {
-            templateUrl: 'generalPages/about.html',
-            controller: 'aboutController'
-        })
+//        // route for the about page
+//        .when('/about', {
+//            templateUrl: 'generalPages/about.html',
+//            controller: 'aboutController'
+//        })
 
-        // route for the contact page
-        .when('/contact', {
-            templateUrl: 'generalPages/contact.html',
-            controller: 'contactController'
-        })
+//        // route for the contact page
+//        .when('/contact', {
+//            templateUrl: 'generalPages/contact.html',
+//            controller: 'contactController'
+//        })
 
 
 
-        /***** route for Vehicle *****/
-        .when('/vehicle/add', {
-            templateUrl: 'vehicle/add.html',
-            controller: 'vehicleAddController'
-        })
-        .when('/vehicle/list', {
-            templateUrl: 'vehicle/list.html',
-            controller: 'vehicleListController'
-        })
+//        /***** route for Vehicle *****/
+//        .when('/vehicle/add', {
+//            templateUrl: 'vehicle/add.html',
+//            controller: 'vehicleAddController'
+//        })
+//        .when('/vehicle/list', {
+//            templateUrl: 'vehicle/list.html',
+//            controller: 'vehicleListController'
+//        })
 
 
 
         
 
-    ;
-});
+//    ;
+//});
 
 
 /***** General Controller *****/
