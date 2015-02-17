@@ -39,15 +39,25 @@
 
      <!-- myGarage js -->
     <script src="js/myGarage.js"></script>
+    <script src="js/angular/angular-route.min.js"></script>
 
     <title>Start-Up</title>
 </head>
 <body ng-controller="mainController">
-    <div layout="row" layout-align="end end"  class="pane">
-        <md-button class="md-fab md-warn">
+     
+
+     
+ <div layout="row" layout-align="end end"  class="pane">
+        <md-button class="md-fab md-warn" ng-click="Enter()" aria-label="Enter">
             <md-icon icon="images/icons/car.png" style="width: 24px; height: 24px;"></md-icon>
         </md-button>
          
     </div>
+   <div id="main">
+      
+         <div ng-view class="view-animate"></div>
+         </div>
+     
+    
 </body>
 </html>
