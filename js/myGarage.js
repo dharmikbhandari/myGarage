@@ -7,6 +7,12 @@ myGarageApp.config(function ($routeProvider) {
 
         /*****route for generalPages*****/
 
+          // route for the main page
+        .when('/', {
+            templateUrl: 'main.html',
+            controller: 'mainController'
+        })
+
         // route for the home page
         .when('/home', {
             templateUrl: 'generalPages/home.html',

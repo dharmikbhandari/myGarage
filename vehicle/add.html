@@ -1,19 +1,37 @@
 ﻿<div ng-controller="vehicleAddController">
-    <div class="list">
-        <label class="item item-input item-stacked-label assertive">
-            <span class="input-label">VEHICLE NO</span>
-            <input type="text" ng-model="VehicleNo" />
-        </label>
-        <label class="item item-input item-stacked-label assertive">
-            <span class="input-label">CURRENT METER READING</span>
-            <input type="number" ng-model="MeterReading">
-        </label>
+    <md-toolbar>
+      <h2 class="md-toolbar-tools">
+        <span>Toolbar</span>
+      </h2>
+    </md-toolbar>
+     <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>First Name</label>
+          <input ng-model="user.firstName" placeholder="Placeholder text">
+        </md-input-container>
+        <md-input-container flex>
+          <label>Last Name</label>
+          <input ng-model="theMax">
+        </md-input-container>
       </div>
-    <div class="row">
+    <md-button class="md-raised md-warn">Warn</md-button>
+     <md-content class="md-padding">
+    <form name="userForm">
+    <div layout layout-sm="column">
+        <md-input-container flex>
+            <label>VEHICLE NO</label>
+            <input type="text" ng-model="VehicleNo" placeholder="Placeholder text"/>
+        </md-input-container>
+        <md-input-container flex>
+         <label>CURRENT METER READING</label>
+            <input type="number" ng-model="MeterReading" placeholder="Placeholder text"/>
+         </md-input-container>
+      </div>
+    <div layout="row">
           <button type="button" class="button button-block button-assertive">
                 SAVE
           </button>
         </div>
-  
-    
+  </form>
+    </md-content>
 </div>
