@@ -31,6 +31,13 @@ myGarageApp.config(function ($routeProvider) {
             controller: 'contactController'
         })
 
+        // route for the contact page
+        .when('/menu', {
+            templateUrl: 'menu.html',
+            controller: 'menuController'
+        })
+
+
 
 
         /***** route for Vehicle *****/
@@ -55,9 +62,16 @@ myGarageApp.config(function ($routeProvider) {
 myGarageApp.controller('mainController', function ($scope) {
     $scope.message = 'Welcome Saheb...!';
     $scope.Enter = function () {
-        location.href = "#/vehicle/add";
+        location.href = "#/menu";
     };
 });
+
+myGarageApp.controller('menuController', function ($scope) {
+    $scope.VehicleEnter = function () {
+        location.href = "#/vehicle/list";
+    };
+});
+
 
 myGarageApp.controller('homeController', function ($scope) {
     $scope.message = 'Welcome home Saheb...!';
