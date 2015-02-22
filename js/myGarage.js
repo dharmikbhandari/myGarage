@@ -57,6 +57,11 @@ myGarageApp.config(function ($routeProvider) {
     ;
 });
 
+myGarageApp.run(function ($rootScope) {
+    $rootScope.navigateTo = function (navigateUrl) {
+        location.href = navigateUrl;
+    };
+});
 
 /***** General Controller *****/
 myGarageApp.controller('mainController', function ($scope) {
@@ -98,5 +103,6 @@ myGarageApp.controller('vehicleAddController', function ($scope) {
 });
 
 myGarageApp.controller('vehicleListController', function ($scope, $rootScope) {
-    $scope.footerText = "Vehicle List";
+    $scope.Navigate = function () {
+    };
 });
