@@ -98,8 +98,12 @@ myGarageApp.controller('contactController', function ($scope) {
 
 /***** Vehicle Controller *****/
 myGarageApp.controller('vehicleAddController', function ($scope) {
-    $scope.VehicleNo = "Dharmik";
-    $scope.footerText = "Vehicle Add";
+
+    $scope.addVehicle=function()
+    {
+        console.log("Vehicle No:" + $scope.vehicleAdd.VehicleNo);
+        console.log("CurrentMeterReading:" + $scope.vehicleAdd.CurrentMeterReading);
+    }
 });
 
 myGarageApp.controller('vehicleListController', function ($scope, $rootScope) {

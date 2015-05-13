@@ -5,34 +5,17 @@
            <a href back-button>back</a>
       </h2>
     </md-toolbar>
-     <div layout layout-sm="column">
-        <md-input-container flex>
-          <label>First Name</label>
-          <input ng-model="user.firstName" placeholder="Placeholder text">
-        </md-input-container>
-        <md-input-container flex>
-          <label>Last Name</label>
-          <input ng-model="theMax">
-        </md-input-container>
-      </div>
-    <md-button class="md-raised md-warn">Warn</md-button>
-     <md-content class="md-padding">
-    <form name="userForm">
-    <div layout layout-sm="column">
-        <md-input-container flex>
-            <label>VEHICLE NO</label>
-            <input type="text" ng-model="VehicleNo" placeholder="Placeholder text"/>
-        </md-input-container>
-        <md-input-container flex>
-         <label>CURRENT METER READING</label>
-            <input type="number" ng-model="MeterReading" placeholder="Placeholder text"/>
-         </md-input-container>
-      </div>
-    <div layout="row">
-          <button type="button" class="button button-block button-assertive">
-                SAVE
-          </button>
-        </div>
-  </form>
-    </md-content>
+    <md-content layout-padding>
+        <form name="vehicleAddForm" ng-submit="addVehicle()">
+            <md-input-container>
+                <label>VEHICLE NO</label>
+                <input type="text" ng-model="vehicleAdd.VehicleNo" />
+            </md-input-container>
+            <md-input-container>
+                <label>CURRENT METER READING</label>
+                <input type="number" ng-model="vehicleAdd.CurrentMeterReading" style="width:100%" />
+            </md-input-container>
+            <md-button class="md-raised md-warn" type="submit">SAVE</md-button>
+            </form>
+</md-content>
 </div>
