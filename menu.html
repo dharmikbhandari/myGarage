@@ -1,6 +1,7 @@
-﻿<div ng-controller="menuController">
-    <div md-swipe-right="toggleMenu()" md-swipe-left="toggleMenu()">
-        <md-toolbar class="md-warn">
+﻿<div ng-controller="menuController" >
+
+    <div md-swipe-right="toggleMenu()" md-swipe-left="toggleMenu()" >
+        <md-toolbar class="md-warn" style="position:fixed">
             <h2 class="md-toolbar-tools">
                 <!--<a href back-button>back</a>-->
                 <md-button class="md-icon-button" ng-click="toggleMenu()" aria-label="Settings">
@@ -9,7 +10,7 @@
                 <span>myGarage</span>
             </h2>
         </md-toolbar>
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="menu">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="menu" style="position:fixed;">
             <md-toolbar class="md-tall md-warn">
 
                 <img src="images/menu-toolbar-background.jpg" />
@@ -36,14 +37,18 @@
                 </md-list>
             </md-content>
         </md-sidenav>
-        <md-content>
-            <md-card ng-click="VehicleEnter()">
-                <img src="images/menu-vehicle-img.jpg" />
-            </md-card>
-            <md-card>
-                <img src="images/menu-petrol.jpg" />
-            </md-card>
-        </md-content>
+        
+        
+            <md-content>
+                <md-card ng-click="VehicleEnter()" style="margin-top:70px">
+                    <img src="images/menu-vehicle-img.jpg" />
+                </md-card>
+                <md-card>
+                    <img src="images/menu-petrol.jpg" />
+                </md-card>
+            </md-content>
+        
 
-    </div>
+        </div>
 </div>
+
