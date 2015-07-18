@@ -153,6 +153,10 @@ myGarageApp.controller('menuController', function ($scope, $mdSidenav) {
     $scope.toggleMenu = function () {
         $mdSidenav('menu').toggle();
     };
+    $scope.onSwipeLeft = function () {
+        alert("Hello");
+        $mdSidenav('menu').toggle();
+    };
 });
 
 
