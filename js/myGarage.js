@@ -1,6 +1,5 @@
 ﻿var myGarageApp = angular.module('myGarage', ['ngMaterial', 'ngRoute', 'ngAnimate', 'ngCordova']);
 
-
 // configure routes
 myGarageApp.config(function ($routeProvider) {
     $routeProvider
@@ -63,57 +62,79 @@ myGarageApp.run(function ($rootScope) {
     };
 
 
-    /***** Database *****/
-    //http://stackoverflow.com/questions/26604952/a-simple-cordova-android-example-including-sqlite-read-write-and-search
-    // Wait for Cordova to load
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // Cordova is ready
-    function onDeviceReady() {
-        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-        db.transaction(populateDB, errorCB, successCB);
-    }
-
-    // Populate the database
-    function populateDB(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id INTEGER PRIMARY KEY AUTOINCREMENT, name,number)');
-    }
-
-    // Transaction error callback
-    function errorCB(err) {
-        alert("Error processing SQL: " + err.code);
-    }
-    // Transaction success callback
-    function successCB() {
-        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-        db.transaction(queryDB, errorCB);
-    }
-    // Query the database
-    function queryDB(tx) {
-        tx.executeSql('INSERT INTO DEMO (name,number) VALUES ("Dharmik","123")');
-        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
-    }
-    // Query the success callback
-    function querySuccess(tx, results) {
-        var tblText = '<table id="t01"><tr><th>ID</th> <th>Name</th> <th>Number</th></tr>';
-        var len = results.rows.length;
-        for (var i = 0; i < len; i++) {
-            var tmpArgs = results.rows.item(i).id + ",'" + results.rows.item(i).name
-                    + "','" + results.rows.item(i).number + "'";
-            tblText += '<tr onclick="goPopup(' + tmpArgs + ');"><td>' + results.rows.item(i).id + '</td><td>'
-                    + results.rows.item(i).name + '</td><td>' + results.rows.item(i).number + '</td></tr>';
-        }
-        tblText += "</table>";
-        alert(tblText);
-    }
-
-
+    initializeDB();
 
 
 });
 
+/***** Database *****/
+function initializeDB()
+{
 
+    //http://stackoverflow.com/questions/26604952/a-simple-cordova-android-example-including-sqlite-read-write-and-search
+    // Wait for Cordova to load
+    document.addEventListener("deviceready", onDeviceReady, false);
 
+}
+// Cordova is ready
+function onDeviceReady() {
+    var db = window.openDatabase("Database", "1.0", "myGarageDB", 200000);
+    db.transaction(populateDB, errorCB);
+}
+
+// Populate the database
+function populateDB(tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS Vehicle (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name,Number,CurrentMeterReading)');
+}
+
+// Transaction error callback
+function errorCB(err) {
+    console.log("Error processing SQL: " + err.code);
+}
+
+// Query the database
+function executeQuery(query)
+{
+    try
+    {
+        
+        var db = window.openDatabase("Database", "1.0", "myGarageDB", 200000);
+         db.transaction(function (tx) {
+            console.log("In", query);
+             tx.executeSql(query, [], function (tx, result) {
+
+               dataset = result.rows;
+
+                for (var i = 0, item = null; i < dataset.length; i++) {
+
+                    item = dataset.item(i);
+
+                    console.log("Result:", item);
+                }
+             
+
+            }, function (tx,error){
+                console.log("Error in query:" + error.code);
+               
+            });
+
+        });
+
+        return r;
+
+    }
+    catch(e)
+    {
+        
+    }
+
+}
+
+myGarageApp.service('VehicleService', function () {
+    this.Insert = function (a) {
+        return MathService.multiply(a, a);
+    }
+});
 
 
 
@@ -125,9 +146,12 @@ myGarageApp.controller('mainController', function ($scope) {
     };
 });
 
-myGarageApp.controller('menuController', function ($scope) {
+myGarageApp.controller('menuController', function ($scope, $mdSidenav) {
     $scope.VehicleEnter = function () {
         location.href = "#/vehicle/list";
+    };
+    $scope.toggleMenu = function () {
+        $mdSidenav('menu').toggle();
     };
 });
 
@@ -151,12 +175,22 @@ myGarageApp.controller('contactController', function ($scope) {
 
 
 /***** Vehicle Controller *****/
-myGarageApp.controller('vehicleAddController', function ($scope) {
+myGarageApp.controller('vehicleAddController', function ($scope, $mdToast) {
 
     $scope.addVehicle=function()
     {
-        console.log("Vehicle No:" + $scope.vehicleAdd.VehicleNo);
-        console.log("CurrentMeterReading:" + $scope.vehicleAdd.CurrentMeterReading);
+        //var result = executeQuery('INSERT INTO Vehicle (Name,Number,CurrentMeterReading) VALUE ("' + $scope.vehicleAdd.VehicleName + '","' + $scope.vehicleAdd.VehicleNumber + '","' + $scope.vehicleAdd.CurrentMeterReading + '")');
+      executeQuery('select * from Vehicle');
+
+      
+
+        //  console.log("Error:", flag);
+        //if (!flag)
+        //{
+        //    $mdToast.show($mdToast.simple().content($scope.vehicleAdd.VehicleName + ' added !'));
+            
+        //}
+        
     }
 });
 

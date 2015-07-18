@@ -1,19 +1,48 @@
 ﻿<div ng-controller="menuController">
-     <md-toolbar>
-      <h2 class="md-toolbar-tools">
-          <a href back-button>back</a>
-        <span>Toolbar</span>
-      </h2>
+    <md-toolbar class="md-warn">
+        <h2 class="md-toolbar-tools">
+            <!--<a href back-button>back</a>-->
+            <md-button class="md-icon-button" ng-click="toggleMenu()" aria-label="Settings">
+                <img src="images/icons/ic_menu_white_24dp.png" />
+            </md-button>
+            <span>myGarage</span>
+        </h2>
     </md-toolbar>
-    
-    <md-content>
-    <md-card ng-click="VehicleEnter()">
-      <img src="images/menu-vehicle-img.jpg" />
-          </md-card>
-     <md-card>
-      <img src="images/menu-petrol.jpg" />
-          </md-card>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="menu" >
+        <md-toolbar class="md-tall md-warn">
+
+            <img src="images/menu-toolbar-background.jpg" />
+            <h1 class="md-toolbar-tools">myGarage</h1>
+        </md-toolbar>
+        <br />
+        <md-content>
+            <md-list>
+                <md-list-item>
+                    <img src="images/icons/ic_home_black_24dp.png" />&nbsp;&nbsp;
+                    <p>HOME</p>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item>
+                    <img src="images/icons/ic_directions_car_black_24dp.png" />&nbsp;&nbsp;
+                    <p>VEHICLE</p>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item>
+                    <img src="images/icons/ic_gradient_black_24dp.png" />&nbsp;&nbsp;
+                    <p>PETROL</p>
+                </md-list-item>
+                <md-divider></md-divider>
+            </md-list>
+        </md-content>
+        </md-sidenav>
+        <md-content>
+            <md-card ng-click="VehicleEnter()">
+                <img src="images/menu-vehicle-img.jpg" />
+            </md-card>
+            <md-card>
+                <img src="images/menu-petrol.jpg" />
+            </md-card>
         </md-content>
 
-   
+
 </div>

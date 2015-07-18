@@ -1,15 +1,19 @@
 ﻿<div ng-controller="vehicleAddController">
-    <md-toolbar>
-      <h2 class="md-toolbar-tools">
-        <span>Toolbar</span>
-           <a href back-button>back</a>
-      </h2>
+    <md-toolbar class="md-warn">
+        <h2 class="md-toolbar-tools">
+            <span>Toolbar</span>
+            <a href back-button>back</a>
+        </h2>
     </md-toolbar>
     <md-content layout-padding>
         <form name="vehicleAddForm" ng-submit="addVehicle()">
             <md-input-container>
-                <label>VEHICLE NO</label>
-                <input type="text" ng-model="vehicleAdd.VehicleNo" />
+                <label>Name</label>
+                <input type="text" ng-model="vehicleAdd.VehicleName" />
+            </md-input-container>
+            <md-input-container>
+                <label>Number</label>
+                <input type="text" ng-model="vehicleAdd.VehicleNumber" />
             </md-input-container>
             <md-input-container>
                 <label>CURRENT METER READING</label>
